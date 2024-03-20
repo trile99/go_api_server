@@ -29,6 +29,8 @@ func Connect() {
 		fmt.Println("Error parsing str to int")
 	}
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%d sslmode=disable TimeZone=Asia/Shanghai", configs.Config("DB_HOST"), configs.Config("DB_USER"), configs.Config("DB_PASSWORD"), configs.Config("DB_NAME"), port)
+	fmt.Printf(dsn)
+
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),
 	})
